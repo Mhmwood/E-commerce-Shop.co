@@ -1,0 +1,9 @@
+https://www.figma.com/design/GwWKhtCMYrGaf52TBY9Lsx/E-commerce-Website-Template-(Freebie)-(Community)?node-id=20-2&t=j16piyYVkru7Suxo-0
+
+
+
+import { motion } from "framer-motion";
+
+// In your component
+const [openMenu, setOpenMenu] = useState(false);
+
