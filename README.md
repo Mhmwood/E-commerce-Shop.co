@@ -1,4 +1,4 @@
-# 🛒 E-commerce Shop.co  
+# E-commerce Shop.co  
 
 A modern and responsive e-commerce frontend built with cutting-edge technologies for a seamless shopping experience.  
 
@@ -10,7 +10,7 @@ A modern and responsive e-commerce frontend built with cutting-edge technologies
 - **Tailwind CSS** – Utility-first styling  
 - **Framer Motion** – Smooth animations  
 
-## 📸 Credits  
+## ⭐ Credits  
 - **Design by:** [Hamza Naeem](https://www.figma.com/community/file/1273571982885059508)  
 - **Original Inspiration:** [AJ](https://github.com/AJ1732/shop.co)  
 
