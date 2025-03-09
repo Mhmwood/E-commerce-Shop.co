@@ -1,12 +1,18 @@
 // store/middleware/localStorage.ts
-import { Middleware, AnyAction } from "@reduxjs/toolkit";
+import { Middleware } from "@reduxjs/toolkit";
 import { RootState } from "..";
 
 export const localStorageMiddleware: Middleware =
-  (store) => (next) => (action: AnyAction) => {
+  (store) => (next) => (action) => {
     const result = next(action);
 
-    if (action.type.startsWith("cart/")) {
+    if (
+      typeof action === "object" &&
+      action !== null &&
+      "type" in action &&
+      typeof action.type === "string" &&
+      action.type.startsWith("cart/")
+    ) {
       try {
         const state = store.getState().cart;
         localStorage.setItem("cart", JSON.stringify(state));
