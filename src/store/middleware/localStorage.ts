@@ -1,9 +1,9 @@
 // store/middleware/localStorage.ts
-import { Middleware, UnknownAction } from "@reduxjs/toolkit";
+import { Middleware, AnyAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
 
 export const localStorageMiddleware: Middleware =
-  (store) => (next) => (action: UnknownAction) => {
+  (store) => (next) => (action: AnyAction) => {
     const result = next(action);
 
     if (action.type.startsWith("cart/")) {

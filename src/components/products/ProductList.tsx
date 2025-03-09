@@ -43,7 +43,7 @@ const ProductList = ({
       <motion.ul
         className={`flex gap-5 ${flexxWrap ? "flex-wrap" : ""}`}
         animate={{ marginLeft: marginX }}
-        transition={{ duration: 0.5, ease: "easeInOut" }} // تأثير سلس عند التمرير
+        transition={{ duration: 0.5, ease: "easeInOut" }} 
       >
         {products.map((product, index) => (
           <li key={index}>
