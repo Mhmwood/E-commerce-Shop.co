@@ -43,7 +43,7 @@ const ShowProduct = ({
     skip: (currentPage - 1) * limit,
   });
 
- // console.log(isError);
+  // console.log(isError);
   const totalPages = Math.ceil(total / limit);
   localStorage.setItem("category", category || "");
 
@@ -59,7 +59,7 @@ const ShowProduct = ({
   const maxPrice = searchParams.get("maxprice") as string | undefined;
   return (
     <div className="relative">
-      <nav className="flex justify-between items-center">
+      <nav className="flex justify-between items-center ">
         <h4 className=" hidden lg:block text-2xl font-bold mr-2 md:mr-0">
           {category}
         </h4>
@@ -79,14 +79,14 @@ const ShowProduct = ({
           </div>
         </div>
 
-        <AnimatePresence >
+        <AnimatePresence>
           {openMenu && (
             <motion.div
-              initial={{ x: "15vw", opacity: 0 }}
+              initial={{ x: "-15vw", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "15vw", opacity: 0 }}
+              exit={{ x: "-15vw", opacity: 0 }}
               transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-              className="absolute top-16 bg-white  right-0   z-10 lg:hidden "
+              className="absolute top-16   z-10 lg:hidden   w-full "
               ref={ref}
             >
               <FliterMenu />
@@ -94,8 +94,11 @@ const ShowProduct = ({
           )}
         </AnimatePresence>
 
-        <div className="  lg:hidden">
-          <button className=" flex " onClick={() => setOpenMenu(!openMenu)}>
+        <div className="  lg:hidden  relative">
+          <button
+            className=" flex  "
+            onClick={() => setOpenMenu((prev) => !prev)}
+          >
             <svg
               width={54}
               height={54}
@@ -110,6 +113,7 @@ const ShowProduct = ({
               />
             </svg>
           </button>
+          {openMenu && <div className="absolute  p-5 inset-0"></div>}
         </div>
       </nav>
       {/* isLoading */}

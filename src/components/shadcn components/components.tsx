@@ -201,14 +201,17 @@ export function NavigationMenuDemo({
         <NavigationMenuItem>
           <NavigationMenuTrigger className="">Shop</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
+            <div className="grid  gap-3 py-3 px-4 w-[20rem] grid-cols-2  md:w-[500px] md:grid-cols-3 lg:w-[600px]  ">
               {categories.map((categorie) => (
                 <ul key={categorie.title}>
-                  <h5 className="text-lg font-bold text-primary">
+                  <h5 className=" text-sm md:text-lg font-bold text-primary">
                     {categorie.title}
                   </h5>
                   {categorie.list.map((item) => (
-                    <li className=" flex items-center  w-full" key={item}>
+                    <li
+                      className=" max-sm:text-xs flex items-center  w-full"
+                      key={item}
+                    >
                       <a
                         className="text-gray-500 cursor-pointer hover:underline hover:text-primary flex items-center "
                         onClick={() => navigate(`/shop/${item}`)}

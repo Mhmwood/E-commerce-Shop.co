@@ -1,6 +1,7 @@
 import Circle from "@/assets/design/Circle";
 
 import Brands from "./Brands";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -17,6 +18,7 @@ const data = [
   },
 ];
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className=" py-10 md:py-20 bg-secondary-foreground px-4 md:px-20">
@@ -33,14 +35,20 @@ const Hero = () => {
                 garments, designed to bring out your individuality and cater to
                 your sense of style.
               </p>
-              <button className="bg-primary text-white w-full md:w-auto rounded-full py-4 px-16 ">
+              <button
+                className="bg-primary text-white w-full md:w-auto rounded-full py-4 px-16 "
+                onClick={() => navigate("shop/?sortBy=meta&order=desc")}
+              >
                 Shop Now
               </button>
             </div>
 
             <div className="flex  flex-wrap md:flex-nowrap justify-center     md:px-0">
               {data.map((item, index) => (
-                <div key={index} className="even:border-l-2  sm:even:border-r-2 border-gray-300 px-6 mt-4 md:mt-0">
+                <div
+                  key={index}
+                  className="even:border-l-2  sm:even:border-r-2 border-gray-300 px-6 mt-4 md:mt-0"
+                >
                   <h4 className="text-2xl md:text-4xl font-bold">
                     {item.numbers.toLocaleString("en-US")}+
                   </h4>

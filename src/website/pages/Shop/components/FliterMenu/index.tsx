@@ -4,7 +4,7 @@ import PriseSelecter from "./components/PriseSelecter";
 
 const FliterMenu = () => {
   return (
-    <div className=" border w-full rounded-3xl space-y-5 px-5 py-4   *:border-b *:border-gray-300 *:pb-6 ">
+    <div className=" bg-white border w-full rounded-3xl space-y-5 px-5 py-4   *:border-b *:border-gray-300 *:pb-6 ">
       <div className=" justify-between items-center hidden lg:flex">
         <h4 className="text-2xl  font-bold mr-2 md:mr-0">Filters</h4>
 
