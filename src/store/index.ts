@@ -11,7 +11,7 @@ export const store = configureStore({
     search: searchReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(localStorageMiddleware), // Add the middleware
+    getDefaultMiddleware().concat(localStorageMiddleware), 
 });
 
 export type RootState = ReturnType<typeof store.getState>;

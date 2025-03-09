@@ -1,14 +1,12 @@
 // store/middleware/localStorage.ts
-import { Middleware } from "@reduxjs/toolkit";
+import { Middleware, UnknownAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
 
-export const localStorageMiddleware: Middleware<object, RootState> =
-  (store) => (next) => (action) => {
-    // First perform the action
+export const localStorageMiddleware: Middleware =
+  (store) => (next) => (action: UnknownAction) => {
     const result = next(action);
 
-    // Then handle persistence
-    if (action.type?.startsWith("cart/")) {
+    if (action.type.startsWith("cart/")) {
       try {
         const state = store.getState().cart;
         localStorage.setItem("cart", JSON.stringify(state));
@@ -20,7 +18,7 @@ export const localStorageMiddleware: Middleware<object, RootState> =
     return result;
   };
 
-export const loadState = () => {
+export const loadState = (): RootState["cart"] | undefined => {
   try {
     const serializedState = localStorage.getItem("cart");
     if (!serializedState) return undefined;
