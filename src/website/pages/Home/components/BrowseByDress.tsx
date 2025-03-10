@@ -14,7 +14,7 @@ const BrowseByDress = () => {
             onClick={() => navigate("/shop/mens-shirts")}
             className="cursor-pointer relative overflow-hidden rounded-3xl md:col-span-1  h-[190px] md:h-[289px]"
           >
-            <h4 className="absolute z-10  font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
+            <h4 className="absolute z-10 font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
               shirts
             </h4>
             <div className="w-full z-0  h-full  ">
@@ -30,7 +30,7 @@ const BrowseByDress = () => {
             onClick={() => navigate("/shop/mens-watches")}
             className="cursor-pointer relative overflow-hidden rounded-3xl md:col-span-2 h-[190px] md:h-[289px] "
           >
-            <h4 className="absolute z-10  font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
+            <h4 className="absolute z-10 font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
               watches
             </h4>
             <div className="w-full z-0  h-full ">
@@ -46,7 +46,7 @@ const BrowseByDress = () => {
             onClick={() => navigate("/shop/womens-dresses")}
             className="cursor-pointer relative overflow-hidden rounded-3xl md:col-span-2 h-[190px] md:h-[289px]"
           >
-            <h4 className="absolute z-10 font-integral  font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
+            <h4 className="absolute z-10 font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
               Party
             </h4>
             <div className="w-full z-0  h-full ">
@@ -62,7 +62,7 @@ const BrowseByDress = () => {
             onClick={() => navigate("/shop/sports-accessories")}
             className="cursor-pointer relative overflow-hidden rounded-3xl md:col-span-1 h-[190px] md:h-[289px] "
           >
-            <h4 className="absolute z-10  font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
+            <h4 className="absolute z-10 font-bold text-5xl top-0 left-0 transform translate-y-6 translate-x-9">
               Gym
             </h4>
             <div className="w-full z-0  h-full ">

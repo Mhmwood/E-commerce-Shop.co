@@ -78,10 +78,10 @@
 
 @font-face {
   font-family: "Integral CF";
-  src: url("/fonts/Integral_CF/Fontspring-DEMO-integralcf-bold.otf");
+  src: url("/src/assets/font/Fontspring-DEMO-integralcf-bold.otf");
 }
 
 @font-face {
   font-family: "Satoshi";
-  src: url("/fonts/Satoshi/Satoshi-Light.otf");
+  src: url("/src/assets/font/Satoshi-Medium.otf");
 }
