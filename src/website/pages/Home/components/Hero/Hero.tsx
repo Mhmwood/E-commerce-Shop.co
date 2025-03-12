@@ -36,7 +36,8 @@ const Hero = () => {
                 your sense of style.
               </p>
               <button
-                className="bg-primary text-white w-full md:w-auto rounded-full py-4 px-16 "
+                className=" text-white w-full md:w-auto  py-4 px-16 
+                 rounded-full bg-primary"
                 onClick={() => navigate("shop/?sortBy=meta&order=desc")}
               >
                 Shop Now

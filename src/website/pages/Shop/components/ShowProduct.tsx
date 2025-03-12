@@ -33,6 +33,7 @@ const ShowProduct = ({
   useEffect(() => {
     setSortBy(sortBy);
     setOpenMenu(false);
+    setCurrentPage(1);
   }, [sortBy, location]);
 
   const { products, isLoading, total, isError, error } = useProducts({
@@ -43,7 +44,6 @@ const ShowProduct = ({
     skip: (currentPage - 1) * limit,
   });
 
-  // console.log(isError);
   const totalPages = Math.ceil(total / limit);
   localStorage.setItem("category", category || "");
 
@@ -127,7 +127,7 @@ const ShowProduct = ({
             <ShowLoader />
           </div>
         ) : isError ? (
-          <div className="flex   justify-center items-center h-screen w-full">
+          <div className="flex   justify-center items-center h-screen col-span-full">
             <ShowError errorMsg={error} />
           </div>
         ) : minPrice && maxPrice ? (
@@ -138,6 +138,11 @@ const ShowProduct = ({
                 product.price <= Number(maxPrice)
             )
             .map((product: Product) => <Card key={product.id} {...product} />)
+            .length === 0 && (
+            <div className="flex  justify-center items-center h-screen col-span-full">
+              <p className="text-black/60">No products availabl</p>
+            </div>
+          )
         ) : (
           products.map((product: Product) => (
             <Card key={product.id} {...product} />

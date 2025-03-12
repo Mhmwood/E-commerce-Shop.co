@@ -96,7 +96,8 @@ const PriceSelector = () => {
       </div>
       <button
         onClick={applyFilter}
-        className="w-full text-white text-md py-3 px-4 md:px-20 lg:px-14 hover:text-primary hover:bg-white hover:border border-primary rounded-full bg-primary transition duration-150"
+        className="w-full text-white text-md py-3 px-4 md:px-20 lg:px-14
+         hover:text-primary hover:bg-white border border-primary rounded-full bg-primary transition duration-150"
       >
         Apply Filter
       </button>

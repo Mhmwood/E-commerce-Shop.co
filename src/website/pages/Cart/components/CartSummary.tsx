@@ -64,7 +64,9 @@ const CartSummary = () => {
         </div>
         <button
           // onClick={() => {}}
-          className="w-full flex justify-center items-center text-white text-md py-4 px-4 md:px-20 lg:px-14 hover:text-primary hover:bg-white border border-primary rounded-full bg-primary transition duration-150"
+          className="w-full flex justify-center items-center
+           text-white text-md py-4 px-5 md:px-20 lg:px-14 
+           hover:text-primary hover:bg-white border border-primary rounded-full bg-primary transition duration-150"
         >
           <span className="mr-3">Go to Checkout</span>
           <LucideArrowRight className="" />

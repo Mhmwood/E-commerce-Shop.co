@@ -1,7 +1,6 @@
 import axios from "axios";
 import { apiClient } from "@/lib/axios";
 import { Product } from "@/types/products";
-// "https://dummyjson.com/products?limit=10&skip=10&select=title,price";
 interface ProductsResponse {
   products: Product[];
   total: number;
@@ -23,18 +22,6 @@ interface GetProductByIdParams {
   select?: string[];
 }
 
-interface CategoryParams {
-  category: string;
-  select?: string[];
-  limit?: number;
-  skip?: number;
-}
-
-interface PaginationParams {
-  limit?: number;
-  skip?: number;
-  select?: string[];
-}
 
 interface SearchParams {
   query: string;
@@ -67,6 +54,7 @@ export const productEndpoints = {
       return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
+        console.error("Error fetching products:", error.message);
         throw new Error(
           error.response?.data?.message || "Failed to fetch products"
         );
@@ -91,59 +79,6 @@ export const productEndpoints = {
         );
       }
       throw new Error(`Failed to fetch product with id ${id}`);
-    }
-  },
-
-  async getProductsByCategory({
-    category,
-    select,
-    limit,
-    skip,
-  }: CategoryParams): Promise<ProductsResponse> {
-    try {
-      const { data } = await apiClient.get<ProductsResponse>(
-        `products/category/${category}`,
-        {
-          params: {
-            ...(select && { select: select.join(",") }),
-            ...(limit && { limit }),
-            ...(skip && { skip }),
-          },
-        }
-      );
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(
-          error.response?.data?.message ||
-            `Failed to fetch products in category ${category}`
-        );
-      }
-      throw new Error(`Failed to fetch products in category ${category}`);
-    }
-  },
-
-  async getProductsWithPagination({
-    limit = 10,
-    skip = 0,
-    select = [],
-  }: PaginationParams = {}): Promise<ProductsResponse> {
-    try {
-      const { data } = await apiClient.get<ProductsResponse>("products", {
-        params: {
-          limit,
-          skip,
-          select: select.join(","),
-        },
-      });
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(
-          error.response?.data?.message || "Failed to fetch paginated products"
-        );
-      }
-      throw new Error("Failed to fetch paginated products");
     }
   },
 

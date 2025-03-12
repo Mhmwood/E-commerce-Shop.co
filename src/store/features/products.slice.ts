@@ -33,12 +33,6 @@ interface GetProductByIdParams {
   select?: string[];
 }
 
-interface CategoryParams {
-  category: string;
-  select?: string[];
-  limit?: number;
-  skip?: number;
-}
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -54,24 +48,7 @@ export const fetchProductById = createAsyncThunk(
   }
 );
 
-export const fetchProductsByCategory = createAsyncThunk(
-  "products/fetchProductsByCategory",
-  async ({ category, select, limit, skip }: CategoryParams) => {
-    return await productEndpoints.getProductsByCategory({
-      category,
-      select,
-      limit,
-      skip,
-    });
-  }
-);
 
-export const fetchPaginatedProducts = createAsyncThunk(
-  "products/fetchPaginatedProducts",
-  async (params: { limit?: number; skip?: number; select?: string[] }) => {
-    return await productEndpoints.getProductsWithPagination(params);
-  }
-);
 
 export const searchProducts = createAsyncThunk(
   "products/searchProducts",
@@ -90,7 +67,7 @@ const initialState: ProductsState = {
 };
 
 const getQueryKey = (params?: any): string => {
-  return JSON.stringify(params); // Unique query key based on parameters
+  return JSON.stringify(params);
 };
 
 const clearFirstQueryCache = (
@@ -175,71 +152,7 @@ const productsSlice = createSlice({
         };
       })
 
-      // FETCH PRODUCTS BY CATEGORY
-      .addCase(fetchProductsByCategory.pending, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: [],
-          status: "loading",
-          error: null,
-          countOfQueries: 0,
-        };
-      })
-      .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: action.payload.products,
-          status: "succeeded",
-          error: null,
-          countOfQueries: (state.queries[queryKey]?.countOfQueries || 0) + 1,
-        };
-        state.total = action.payload.total;
-        state.skip = action.payload.skip;
-        state.limit = action.payload.limit;
-        clearFirstQueryCache(state);
-      })
-      .addCase(fetchProductsByCategory.rejected, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: [],
-          status: "failed",
-          error: action.error.message || "Failed to fetch category products",
-          countOfQueries: state.queries[queryKey]?.countOfQueries || 0,
-        };
-      })
 
-      // FETCH PAGINATED PRODUCTS
-      .addCase(fetchPaginatedProducts.pending, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: [],
-          status: "loading",
-          error: null,
-          countOfQueries: 0,
-        };
-      })
-      .addCase(fetchPaginatedProducts.fulfilled, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: action.payload.products,
-          status: "succeeded",
-          error: null,
-          countOfQueries: (state.queries[queryKey]?.countOfQueries || 0) + 1,
-        };
-        state.total = action.payload.total;
-        state.skip = action.payload.skip;
-        state.limit = action.payload.limit;
-        clearFirstQueryCache(state);
-      })
-      .addCase(fetchPaginatedProducts.rejected, (state, action) => {
-        const queryKey = getQueryKey(action.meta.arg);
-        state.queries[queryKey] = {
-          items: [],
-          status: "failed",
-          error: action.error.message || "Failed to fetch paginated products",
-          countOfQueries: state.queries[queryKey]?.countOfQueries || 0,
-        };
-      })
 
       // SEARCH PRODUCTS
       .addCase(searchProducts.pending, (state, action) => {
