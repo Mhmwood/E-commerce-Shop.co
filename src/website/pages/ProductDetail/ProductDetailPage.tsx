@@ -7,7 +7,7 @@ import { useProductById } from "@/hooks/use-products";
 import ProductTabSection from "./components/ProductTabSection";
 import ProductSection from "@/components/products/ProductSection";
 import ShowLoader from "../../../components/ui/Loaders/ShowLoader";
-import { BreadcrumbBar } from "@/components/shadcn components/BreadcrumbBar";
+import { BreadcrumbBar } from "@/components/shadcn-components/BreadcrumbBar";
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();

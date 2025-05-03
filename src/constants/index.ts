@@ -27,3 +27,5 @@ export const CategoriesList: { title: string; list: string[] }[] = [
   { title: "Vehicles", list: ["motorcycle", "vehicle"] },
   { title: "General Clothing", list: ["tops"] },
 ];
+
+export * from "./index";

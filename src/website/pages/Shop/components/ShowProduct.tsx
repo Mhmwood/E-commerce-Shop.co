@@ -1,8 +1,5 @@
 import Card from "@/components/products/ProductCard";
-import {
-  PaginationDemo,
-  SelectDemo,
-} from "@/components/shadcn components/components";
+
 import ShowError from "@/components/ui/errs/ShowError";
 import ShowLoader from "@/components/ui/Loaders/ShowLoader";
 import { useProducts } from "@/hooks/use-products";
@@ -12,6 +9,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import FliterMenu from "./FliterMenu";
 import { useClickOutside } from "@/hooks/use-click-outside";
+import { PaginationDemo } from "@/components/shadcn-components/PaginationDemo";
+import { SelectDemo } from "@/components/shadcn-components/SelectDemo";
 
 const ShowProduct = ({
   category,
@@ -46,6 +45,7 @@ const ShowProduct = ({
 
   const totalPages = Math.ceil(total / limit);
   localStorage.setItem("category", category || "");
+  console.log(products);
 
   const selectOptionsMap = {
     "Most Popular": "reviews",
@@ -57,6 +57,11 @@ const ShowProduct = ({
   const [searchParams] = useSearchParams();
   const minPrice = searchParams.get("minprice") as string | undefined;
   const maxPrice = searchParams.get("maxprice") as string | undefined;
+
+  console.log("url:", sortBy);
+  console.log("Products:", products);
+  console.log("Min Price:", minPrice, "Max Price:", maxPrice);
+
   return (
     <div className="relative">
       <nav className="flex justify-between items-center ">
@@ -131,18 +136,23 @@ const ShowProduct = ({
             <ShowError errorMsg={error} />
           </div>
         ) : minPrice && maxPrice ? (
-          products
-            .filter(
+          (() => {
+            const filteredProducts = products.filter(
               (product: Product) =>
                 product.price >= Number(minPrice) &&
                 product.price <= Number(maxPrice)
-            )
-            .map((product: Product) => <Card key={product.id} {...product} />)
-            .length === 0 && (
-            <div className="flex  justify-center items-center h-screen col-span-full">
-              <p className="text-black/60">No products availabl</p>
-            </div>
-          )
+            );
+
+            return filteredProducts.length > 0 ? (
+              filteredProducts.map((product: Product) => (
+                <Card key={product.id} {...product} />
+              ))
+            ) : (
+              <p className="flex   justify-center items-center h-screen w-full text-gray-500 col-span-full">
+                No products available in this price range.
+              </p>
+            );
+          })()
         ) : (
           products.map((product: Product) => (
             <Card key={product.id} {...product} />

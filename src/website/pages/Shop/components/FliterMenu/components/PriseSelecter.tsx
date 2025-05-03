@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const PriceSelector = () => {
   const [open, setOpen] = useState(false);
   const [minPrice, setMinPrice] = useState(10);
   const [maxPrice, setMaxPrice] = useState(150);
   const navigate = useNavigate();
-  const category = localStorage.getItem("category");
+
+  const { category } = useParams();
 
   const applyFilter = () => {
+
     navigate(
       `/shop${
-        category && `/${category}`
-      }/?sortBy=price&order=asc&minprice=${minPrice}&maxprice=${maxPrice}`
+        category ? `/${category}` : ""
+      }/?sortBy=price&order=desc&minprice=${minPrice}&maxprice=${maxPrice}`
     );
   };
 

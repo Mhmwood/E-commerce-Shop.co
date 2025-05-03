@@ -3,7 +3,7 @@ import ShowProduct from "./components/ShowProduct";
 import { Product } from "@/types/products";
 import FliterMenu from "./components/FliterMenu";
 import { useEffect } from "react";
-import { BreadcrumbBar } from "@/components/shadcn components/BreadcrumbBar";
+import { BreadcrumbBar } from "@/components/shadcn-components/BreadcrumbBar";
 
 const ShopPage = () => {
   const { category } = useParams();

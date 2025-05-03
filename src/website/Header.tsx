@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Search from "@/components/Navbar/Search";
 import Cart from "@/components/Navbar/Cart";
-import { NavigationMenuDemo } from "@/components/shadcn components/components";
+import { NavigationMenuDemo } from "@/components/shadcn-components/NavigationMenuDemo";
 import { CategoriesList } from "@/constants";
 import { Link, useLocation } from "react-router-dom";
 
