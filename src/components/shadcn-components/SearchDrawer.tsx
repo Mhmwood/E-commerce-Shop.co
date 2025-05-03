@@ -2,7 +2,7 @@ import { useState } from "react";
 import Search from "../Navbar/Search";
 import { Drawer, DrawerContent, DrawerTrigger } from "../ui/drawer";
 
-export function SearchDrawer() {
+ function SearchDrawer() {
   const [open, setOpen] = useState(false);
   return (
     <Drawer open={open} onOpenChange={setOpen}>
@@ -29,3 +29,6 @@ export function SearchDrawer() {
     </Drawer>
   );
 }
+
+
+export default SearchDrawer;

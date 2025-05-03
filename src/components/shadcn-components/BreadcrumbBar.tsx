@@ -9,7 +9,7 @@ import {
 } from "../ui/breadcrumb";
 import { NavLinks } from "@/types/navlink";
 
-export function BreadcrumbBar({ secondLink = "", link = "", name }: NavLinks) {
+ function BreadcrumbBar({ secondLink = "", link = "", name }: NavLinks) {
   const navigate = useNavigate();
   return (
     <Breadcrumb>
@@ -38,3 +38,6 @@ export function BreadcrumbBar({ secondLink = "", link = "", name }: NavLinks) {
     </Breadcrumb>
   );
 }
+
+
+export default BreadcrumbBar;

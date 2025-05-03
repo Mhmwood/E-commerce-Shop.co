@@ -98,3 +98,5 @@ export function PaginationDemo({
     </Pagination>
   );
 }
+
+export default PaginationDemo;

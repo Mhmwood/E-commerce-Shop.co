@@ -1,11 +1,11 @@
 // Centralized exports for UI components.
-export { default as Breadcrumb } from "./breadcrumb";
-export { default as Button } from "./button";
-export { default as Drawer } from "./drawer";
-export { default as DropdownMenu } from "./dropdown-menu";
-export { default as NavigationMenu } from "./navigation-menu";
-export { default as Pagination } from "./pagination";
+export { Breadcrumb } from "./breadcrumb";
+export { Button } from "./button";
+export { Drawer } from "./drawer";
+export { DropdownMenu } from "./dropdown-menu";
+export { NavigationMenu } from "./navigation-menu";
+export { Pagination } from "./pagination";
 export { default as ScrollButtons } from "./ScrollButtons";
-export { default as Select } from "./select";
+export { Select } from "./select";
 export { default as StarsRating } from "./StarsRating";
-export { default as Tabs } from "./tabs";
+export { Tabs } from "./tabs";

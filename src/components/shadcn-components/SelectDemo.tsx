@@ -30,3 +30,5 @@ export function SelectDemo({
     </Select>
   );
 }
+
+export default SelectDemo;  

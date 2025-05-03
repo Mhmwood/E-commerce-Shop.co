@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useNavigate } from "react-router-dom";
 
-export function NavigationMenuDemo({
+ function NavigationMenuDemo({
   categories,
 }: {
   categories: { title: string; list: string[] }[];
@@ -49,3 +49,6 @@ export function NavigationMenuDemo({
     </NavigationMenu>
   );
 }
+
+
+export default NavigationMenuDemo;  

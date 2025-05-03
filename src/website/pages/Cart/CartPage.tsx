@@ -1,6 +1,6 @@
 import CartList from "./components/CartList";
 import CartSummary from "./components/CartSummary";
-import { BreadcrumbBar } from "@/components/shadcn-components/BreadcrumbBar";
+import BreadcrumbBar  from "@/components/shadcn-components/BreadcrumbBar";
 
 const CartPage = () => {
   return (
